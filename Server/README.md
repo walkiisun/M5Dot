@@ -14,11 +14,9 @@ The broker for this project is EMQX. The dashboard for the server can be found a
 ## System Files
 The M5Dot Project uses two files to listen for messages from the broker and write them to a database. The files are MQTT_Recieve.py and ServerFile.py. 
 
-### MQTT_Recieve.py
-This file subscribes to a topic on the MQTT Broker listens for messages. When a message is recieved, it calls the ServerFile.py file and passes the message to it.
+**MQTT_Recieve.py** - This file subscribes to a topic on the MQTT Broker listens for messages. When a message is recieved, it calls the ServerFile.py file and passes the message to it.
 
-### ServerFile.py
-This file is called from MQTT_Revieve.py. This file parses the message that was sent over MQTT and writes it to a database.
+**ServerFile.py** - This file is called from MQTT_Revieve.py. This file parses the message that was sent over MQTT and writes it to a database.
 
 ## Installation
 Once you have installed the broker, download  the "System Files" folder from this repository. 
