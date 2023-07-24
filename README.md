@@ -22,7 +22,7 @@ The Sensor Device for the project was selected to be an M5 stick-C, an off the s
 ### Summary
 For this project we used the a server hosted on the Sensorweb Labatory at The University of Georgia. The server hosts a number of files and programs for our project. They are attached below
 ### Files and Programs
-**Broker** - This folder infludes the instilation file for the broker and a README.md that includes all of the instructions for installing the broker. In our project we used the EMQX MQTT broker. Once installed and running, a dashboard for for broker can he located at ipAddress:18083.
+**Broker** - The instilation instructions for this broker are in the Server's README.md. In our project we used the EMQX MQTT broker. Once installed and running, a dashboard for for broker can he located at ipAddress:18083.
 
 **MQTT_Recieve.py** - This file subscribes to a topic on the MQTT Broker listens for messages. When a message is recieved, it calls the ServerFile.py file and passes the message to it.
 
