@@ -1,6 +1,6 @@
 # M5Dot
 
-![VisualDiagram](Extras/Homepage.png)  
+![VisualDiagram](Extras/Diagram.png)  
 
 
 
