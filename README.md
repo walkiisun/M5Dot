@@ -28,6 +28,8 @@ For this project we used the a server hosted on the Sensorweb Labatory at The Un
 
 📄 **ServerFile.py** - This file is called from MQTT_Revieve.py. This file parses the message that was sent over MQTT and writes it to a database. 
 
+## 📁 Test Files
+This Folder contains files that were used to test the M5 Stick-C and the Server. It included test file for MQTT, EAP connection, WAP2 conneection, and a headless configuration file for the M5 Stick-C.  
 
 
 
