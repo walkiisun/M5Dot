@@ -5,7 +5,7 @@ from ServerFile import completeCurl
 # MQTT broker information
 broker = "172.21.127.197"
 port = 1883
-topic = "M5DataDemo"
+topic = "M5SleepDemo"
 
 # Create MQTT client
 client = mqtt.Client()
