@@ -14,7 +14,7 @@ The broker for this project is EMQX. The dashboard for the server can be found a
 ```
 
  
-A link to install the broker on the server can be found [here](https://docs.emqx.io/broker/latest/en/getting-started/install.html). 
+A link to install the broker on the server can be found [here](https://docs.emqx.com/en/enterprise/v5.1/deploy/install.html). 
 
 
 ## System Files
