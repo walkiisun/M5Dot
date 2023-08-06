@@ -75,6 +75,7 @@ const int numDataPoints = 100;
 
 struct RowData {
   float rollArray[numDataPoints];
+  float postureArray[numDataPoints];
   // float accXArray[numDataPoints];
   // float accYArray[numDataPoints];
   // float accZArray[numDataPoints];
@@ -84,6 +85,7 @@ RowData rowData;
 
 String unitArray[] = {
   "roll",
+  "posture"
   // "accY",
   // "accZ",
 };
@@ -103,7 +105,7 @@ String packetStopEpoch;
 
 //mqtt vars 
 const char* mqtt_broker = "172.21.127.197";
-const char* topic = "RollDemo";
+const char* topic = "DropTest";
 const int mqtt_port = 1883;
 
 WiFiClient espClient;
@@ -125,6 +127,23 @@ unsigned long Get_Epoch_Time() {
   }
   time(&now);
   return now;
+}
+
+int postureThresh(float inputRoll){
+  int direction;
+  if(inputRoll <= 15 && inputRoll >= -15){
+    direction = 0;
+  }
+  else if(inputRoll >= 160 || inputRoll  <= -160){
+    direction = 2;
+  }
+  else if(inputRoll > 15 && inputRoll < 160){
+    direction = 1;
+  }
+  else if(inputRoll < -15 && inputRoll > -160){
+    direction = 3;
+  }
+  return direction;
 }
 
 String epochString() {
@@ -187,6 +206,7 @@ void collectData(){
     if(count == 0){packetStartEpoch = epochString();} 
 
     rowData.rollArray[count] = roll;
+    rowData.postureArray[count] = postureThresh(roll);
     // rowData.accZArray[count] = accZ;
     // rowData.accYArray[count] = accY;
 
@@ -438,10 +458,12 @@ void debugStatement(String officalStart, String officalEnd){
 void loopCall(){
    if(finishCollection == true){
     Serial.println("-----------------------------------");
-    int delayTime = 1000;
+    int delayTime = 100;
     debugStatement(officalStart, officalEnd);
 
     sendMQTT(createOutMQTT(officalStart, officalEnd, rowData.rollArray, macAddress, unitArray[0]));
+    delay(delayTime);
+    sendMQTT(createOutMQTT(officalStart, officalEnd, rowData.postureArray, macAddress, unitArray[1]));
 
     finishCollection = false;
   }
