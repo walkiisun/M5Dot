@@ -8,14 +8,14 @@
     ```
     <ipAddress>:18083
     ```
-2. **Download  the "System Files" folder.** 
+2. **Download the "Server" folder.** 
    
-    To start listening to messages and writing them to a database, you will need to download the "System Files" folder. This folder contains the files that will listen for messages from the broker and write them to a database.
+    To start listening to messages and writing them to a database, you will need to download the "Server" folder. This folder contains the files that will listen for messages from the broker and write them to a database. This folder also contains testing files that can be used to test the MQTT communication.
 
     Move into the System Folder on the server and run the following command:
 
     ```
-    python3 MQTT_Revieve.py
+    python3 MQTT_Reciever.py
     ```
 
 

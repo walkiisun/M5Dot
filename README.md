@@ -20,11 +20,13 @@ The Installation for this product is as easy as three steps:
    
     To start listening to messages and writing them to a database, you will need to download the "Server" folder. This folder contains the files that will listen for messages from the broker and write them to a database.
 
-     on the server and run the following command:
+    Once downloaded on the server, run the following command:
 
     ```
     python3 MQTT_Reciever.py
     ```
+
+    This program will begin listening for messages from the broker and writing them to a database.
 
 3. **Pick which program you want to run and upload it to the M5 Stick-C.** For more information head to the [M5 Stick-C folder](https://github.com/walkiisun/M5Dot/tree/main/M5%20Stick-C). 
 
