@@ -48,7 +48,9 @@ For more information about the scripts, head to the [M5 Stick-C folder](https://
 
 ## 📁 Server  
 ### Summary
-For this project we used the a server hosted on the Sensorweb Labatory at The University of Georgia. The server hosts a number of files and programs for our project. They are attached below
+For this project we used the a server hosted at the Sensorweb Labatory at The University of Georgia. 
+
+The server hosts a number of files and programs for our project. They are attached below:
 ### Files and Programs
 
 📄 **MQTT_Recieve.py** - This file subscribes to a topic on the MQTT Broker listens for messages. When a message is recieved, it calls the ServerFile.py file and passes the message to it.
@@ -71,8 +73,8 @@ This Folder contains files that were used to test the M5 Stick-C and the Server.
 
 
 ## Troubleshooting 
-1. Head to the broker  dashboard after setting up the broker on the server. If the broker is running, the dashboard should be running at ipAddress:18083. If the dashboard is not loading on the webpage, then the broker is not running.
-2. If you are trying to look at Grafana, make sure you input lowercase letters of the mac address. For example, if the mac address is 30:AE:A4:1C:2B:1C, then the mac address inputed into Grafana should be 30:ae:a4:1c:2b:1c.
+1. If you are unsure if the broker is running, head to the broker dashboard after setting up the broker on the server at ipAddress:18083. If the dashboard webpage is not loading, then the broker is not running.
+2. If your data in not showing up on Grafana, make sure you input lowercase letters of the mac address. For example, if the mac address is 30:AE:A4:1C:2B:1C, then the mac address inputed into Grafana should be 30:ae:a4:1c:2b:1c.
 
 
 
