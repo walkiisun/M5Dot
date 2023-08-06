@@ -9,8 +9,8 @@
 const char* ssid = "sensorweb";
 const char* password = "sensorweb128";
 
-char* EAP_IDENTITY  = "noahro@bu.edu";
-char* EAP_PASSWORD  = "MonsterMonster()";
+char* EAP_IDENTITY  = "SCHOOL EMAIL";
+char* EAP_PASSWORD  = "SCHOOL PASSWORD";
 
 char* STAusername;
 char* STApassword;
