@@ -4,7 +4,7 @@ There are many "test files" on the server that can be used to "get started". To 
 
 It is a requirment to set up the server to complete the tests below. After that, any test can be completed in any order.
 
-## Set up the Broker
+## Set Up on the Server
 1. **Download the Broker**: The broker for this project is EMQX.   
    
      A link to install the broker on the server can be found [here](https://docs.emqx.com/en/enterprise/v5.1/deploy/install.html).  The dashboard for the server can be found at: 
@@ -12,6 +12,10 @@ It is a requirment to set up the server to complete the tests below. After that,
     ```
     <ipAddress>:18083
     ```
+2. **Download  the "Server" folder.** 
+   
+    Download the "Server" folder. This folder contains all testing files as well as production files.
+
 
 ## Testing the MQTT Communication
 To test the broker and the MQTT communication, follow these steps:
