@@ -41,6 +41,8 @@ def createTimeArray(startTime, endTime, dataArray):
 
 # Function to create the Curl String
 def createString(parsedValues, dataPoint, timestamp):
+    # Call config here
+    
     stringTimeStamp = convert_scientific_to_full(timestamp)
     #parsedValues[0] = "Z" #overriding for now
               # "curl -k -POST 'https://sensorweb.us:8086/write?db=shake' -u test:sensorweb --data-binary ' Z,location=00:00:00:00:00:00 value=999 1689731462967998976'"
@@ -53,23 +55,6 @@ def sendToInflux(inputString):
     # print("Sending Data to InfluxDB with curl command: " + inputString)
     subprocess.call(inputString, shell=True)
     # print("Data sent to InfluxDB")
-
-# Tests a single datapoint
-def printOneDataPoint(inputString): 
-    #Parse the input into a string array
-    parsedValues = parseString(inputString)
-    
-    #Create the data array
-    dataArray = returnDataArray(parsedValues[2])
-    
-    #Create timeStamp Data
-    timeArray = createTimeArray(parsedValues[3], parsedValues[4], dataArray)
-    
-    # Create a String 
-    httpString = createString(parsedValues, dataArray[0], timeArray[0])
-    
-    # Send the data to the influxDB
-    sendToInflux(httpString)
         
 def completeCurl(inputString):  
     print("Entered the Curl Function at: " + str(datetime.datetime.now()))
@@ -91,11 +76,29 @@ def completeCurl(inputString):
         sendToInflux(httpString)
     #print("Fake sending Data")
     print("Leaving the Curl Function at: " + str(datetime.datetime.now()))
+
+# Get the values from the yaml file
+def config():
+    keys = []
+    values = []
+    with open("config.yaml", "r") as stream:
+        dictOfKeyValues = yaml.safe_load(stream)
+        for i in range(len(list(dictOfKeyValues))):        
+            keys.append(list(dictOfKeyValues)[i]) # gets the topic
+            values.append(list(dictOfKeyValues.values())[i]) #gets the values
+    
+    global http_post
+    
+    http_post = values[3]
+    
+# Function to test the Curl Function
+def Curl_Example_Code():
+    inputString = "M5 yaw 30,40,30,40,30,40,30 1689746881.000 1689746888.000 00:00:00:00:00:00"
+    completeCurl(inputString)
     
 
 if __name__ == '__main__': 
-    inputString = "M5 yaw 30,40,30,40,30,40,30 1689746881.000 1689746888.000 00:00:00:00:00:00"
-    completeCurl(inputString)
+    Curl_Example_Code()
     
 
 
