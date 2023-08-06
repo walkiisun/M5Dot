@@ -7,9 +7,6 @@
 #include "Kalman.h"
 
 
-const char* ssid = "sensorweb";
-const char* password = "sensorweb128";
-
 char* EAP_IDENTITY  = "SCHOOL EMAIL";
 char* EAP_PASSWORD  = "SCHOOL PASSWORD";
 
