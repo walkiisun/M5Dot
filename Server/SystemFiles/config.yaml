@@ -1,4 +1,0 @@
-broker: 10.0.0.37
-port: 1883
-topic: DropTest
-http_post: curl -k -POST 'https://sensorweb.us:8086/write?db=shake' -u test:sensorweb --data-binary ' 
