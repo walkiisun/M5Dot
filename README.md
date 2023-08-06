@@ -8,7 +8,7 @@ This project aimed to build a cost-effective, reliable, and modular sensor that 
 The sensor was built using an M5 Stick-C, an off the shelf microcontroller with an ESP32 chip and a 6 axis inertial measurement unit. The data was sent to a server via MQTT and written to a database. The data was then visualized using Grafana.
 
 ## ⚙️ Installation Instructions
-The Installation for this product is as easy as two steps:
+The Installation for this product is as easy as three steps:
 1. **Download the Broker**: The broker for this project is EMQX.   
    
      A link to install the broker on the server can be found [here](https://docs.emqx.com/en/enterprise/v5.1/deploy/install.html).  The dashboard for the server can be found at: 
@@ -23,10 +23,10 @@ The Installation for this product is as easy as two steps:
     Move into the System Folder on the server and run the following command:
 
     ```
-    python3 MQTT_Revieve.py
+    python3 MQTT_Reciever.py
     ```
 
-3. Pick which program you want to run and upload it to the M5 Stick-C. For more information head to the [M5 Stick-C folder](https://github.com/walkiisun/M5Dot/tree/main/M5%20Stick-C). 
+3. **Pick which program you want to run and upload it to the M5 Stick-C.** For more information head to the [M5 Stick-C folder](https://github.com/walkiisun/M5Dot/tree/main/M5%20Stick-C). 
 
 That is it!. Once the a program is downloaded onto the M5 Stick-C and the server files are downladed onto the server and started, the data will be collected and written to the database. The dashboards can be found [here](https://github.com/walkiisun/M5Dot/blob/main/Dashboards.md).
 
