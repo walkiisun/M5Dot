@@ -1,8 +1,10 @@
 # Getting Started
 
-There are many "test files" on the server that can be used to "get started". To get started download the Server Folder onto your server and follow the video and written instructions here.
+There are many "test files" on the server that can be used to "get started". To get started download the "Server" Folder onto your server and follow the video and written instructions here.
 
-## Setting up the Broker
+It is a requirment to set up the server to complete the other tests below. After that, any test can be completed in any order.
+
+## Set up the Broker
 1. **Download the Broker**: The broker for this project is EMQX.   
    
      A link to install the broker on the server can be found [here](https://docs.emqx.com/en/enterprise/v5.1/deploy/install.html).  The dashboard for the server can be found at: 
