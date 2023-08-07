@@ -77,6 +77,7 @@ This Folder contains files that were used to test the M5 Stick-C and the Server.
 ## Troubleshooting 
 1. If you are unsure if the broker is running, head to the broker dashboard after setting up the broker on the server at ipAddress:18083. If the dashboard webpage is not loading, then the broker is not running.
 2. If your data in not showing up on Grafana, make sure you input lowercase letters of the mac address. For example, if the mac address is 30:AE:A4:1C:2B:1C, then the mac address inputed into Grafana should be 30:ae:a4:1c:2b:1c.
+3. If the broker does down, stop the broker and start it again.
 
 
 
