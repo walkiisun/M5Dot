@@ -34,7 +34,7 @@ That is it!. Once the a program is downloaded onto the M5 Stick-C and the server
 
 
 ## Getting Started 
-There are many files test files in the ServerFiles folder that can be used to "get started". To get started, follow the video and written instructions here.
+There are many files test files in the ServerFiles folder that can be used to "get started". To get started, follow the video and written instructions [here](https://github.com/walkiisun/M5Dot/blob/main/Getting%20Started.md).
 
 ## 📁 M5 Stick-C 
 ### Summary
