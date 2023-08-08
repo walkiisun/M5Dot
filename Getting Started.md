@@ -20,13 +20,15 @@ It is a requirment to set up the server to complete the tests below. After that,
 ## Testing the MQTT Communication
 To test the broker and the MQTT communication, follow these steps:
 
-1. Run the Test_MQTT_Recieve.py file on the server. 
+1. Update config.yaml. Information can be found below.
+
+2. Run the Test_MQTT_Recieve.py file on the server. 
    
 ```
 python3 Test_MQTT_Recieve.py
 ```
    
-2. Run the Test_MQTT_Send.py file on the server.
+3. Run the Test_MQTT_Send.py file on the server.
 
 ```
 python3 Test_MQTT_Send.py
@@ -40,18 +42,42 @@ This demo replaces with M5 Stick-C with a python script.
 
 The python script creates a sine wave and sends it to the server via MQTT. The MQTT_Reciever.py file recieves the message and writes it to the database. 
 
-1. Run the Test_Arduino_Send.py file on the server. 
+1. Update config.yaml. Information can be found below.
+
+2. Run the Test_Arduino_Send.py file on the server. 
    
 ```
 python3 Test_Arduino_Send.py
 ```
-2. Run the MQTT_Reciever.py file on the server.
+3. Run the MQTT_Reciever.py file on the server.
 
 ```
 python3 MQTT_Reciever.py
 ```
 
 If working properly, you should see a sine wave on the dashboard found [here](https://sensorweb.us:3000/d/M0m7iv6Vz/getting-started?orgId=1&from=now-5m&to=now&refresh=5s)
+
+## Update the Config File (Config.yaml)
+   
+   This file contains all the information needed to connect to the broker.
+
+   ```
+    broker: <ipAddress>
+    port: 1883
+    topic: <topic>
+    ...
+    ...
+   ```
+   Change the ipAddress and topic to the correct values. The topic can be any string and the ipAddress is the ip address of the server.
+
+   **Example:** If my ip address is 172.20.39.092 and I want my topic to be "HospitalTest", my config.yaml file would look like this:
+
+    ```
+    broker: 172.20.39.092
+    port: 1883
+    topic: HospitalTest
+    ...
+    ...
 
 ## Troubleshooting
 1. Make sure the information in the config file is correct. All files on the server use the config file to get the information they need.
