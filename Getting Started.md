@@ -22,13 +22,13 @@ To test the broker and the MQTT communication, follow these steps:
 
 1. Update config.yaml. Information can be found below.
 
-2. Run the Test_MQTT_Recieve.py file on the server. 
+2. Run the Test_MQTT_Recieve.py file in a terminal window. 
    
 ```
 python3 Test_MQTT_Recieve.py
 ```
    
-3. Run the Test_MQTT_Send.py file on the server.
+1. Run the Test_MQTT_Send.py file in a **new** terminal window.
 
 ```
 python3 Test_MQTT_Send.py
@@ -44,12 +44,12 @@ The python script creates a sine wave and sends it to the server via MQTT. The M
 
 1. Update config.yaml. Information can be found below.
 
-2. Run the Test_Arduino_Send.py file on the server. 
+2. Run the Test_Arduino_Send.py file in a terminal window. 
    
 ```
 python3 Test_Arduino_Send.py
 ```
-3. Run the MQTT_Reciever.py file on the server.
+1. Run the MQTT_Reciever.py file in a **new** terminal window.
 
 ```
 python3 MQTT_Reciever.py
@@ -59,7 +59,7 @@ If working properly, you should see a sine wave on the dashboard found [here](ht
 
 ## Update the Config File (Config.yaml)
    
-   This file contains all the information needed to connect to the broker.
+   Config.yaml contains all the information needed to connect to the broker.
 
    ```
     broker: <ipAddress>
@@ -68,7 +68,10 @@ If working properly, you should see a sine wave on the dashboard found [here](ht
     ...
     ...
    ```
-   Change the ipAddress and topic to the correct values. The topic can be any string and the ipAddress is the ip address of the server.
+Change the ipAddress and topic to the correct values.
+   
+The **topic** can be any string.  
+The **ipAddress** is the ip address of the server.
 
    **Example:** If my ip address is 172.20.39.092 and I want my topic to be "HospitalTest", my config.yaml file would look like this:
 
