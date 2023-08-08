@@ -34,14 +34,14 @@ def main():
     while True:
         message = GetMessageNow()
         client.publish(topic, message)
-        time.sleep(3)
+        time.sleep(2)
 
 def GetMessageNow():
-    timeStart = round(time.time() - 3, 3)
+    timeStart = round(time.time() - 2, 3)
     timeEnd = round(time.time(), 3)
     
-    x = np.linspace(timeStart, timeEnd, 30)
-    y = 4 * np.sin(2 * np.pi * x / 3)
+    x = np.linspace(timeStart, timeEnd, 200)
+    y = 1 * np.sin(2 * np.pi * x / 1)
 
     returnString = "M5 measurement1 "
     
