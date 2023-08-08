@@ -1,6 +1,6 @@
 import yaml
 
-
+# This function parses the config file and returns a list of values
 def GetInfo():
     keys = []
     values = []
