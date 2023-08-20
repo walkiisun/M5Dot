@@ -1,13 +1,14 @@
 import paho.mqtt.client as mqtt
 import time
 from config import GetInfo
+from Utils import getString
+
 import numpy as np
 
 ##
 ## This code sends the message a sample sinewave to the MQTT broker every 3 seconds
 ## To listen to this message, and test for connection, run the MQTT_Reciever file and head to: https://sensorweb.us:3000/d/M0m7iv6Vz/getting-started?orgId=1&refresh=5s
 ##
-
 
 client = mqtt.Client()
 
@@ -32,29 +33,10 @@ def main():
     client.loop_start()
 
     while True:
-        message = GetMessageNow()
+        message = getString()
         client.publish(topic, message)
         time.sleep(2)
 
-def GetMessageNow():
-    timeStart = round(time.time() - 2, 3)
-    timeEnd = round(time.time(), 3)
-    
-    x = np.linspace(timeStart, timeEnd, 200)
-    y = 1 * np.sin(2 * np.pi * x / 1)
-
-    returnString = "M5 measurement1 "
-    
-    for i in range(len(y) -2):
-        returnString += str(round(y[i],2)) + ","
-        
-    returnString += str(round(y[len(y)-1],2)) + " "
-    
-    returnString += str(timeStart) + " "
-    returnString += str(timeEnd) + " "
-    returnString += "00:00:00:00:00:00"
-    
-    return returnString
 
 
 if __name__ == '__main__':

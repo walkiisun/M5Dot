@@ -1,0 +1,19 @@
+# This is a file of example data for a test
+
+# <mqtt_ip> <mqtt_port> <influx_ip> <influx_user> <influx_pass> <influx_db> <influx_table> <influx_data> <influx_frequency> <influx_startTime> <influx_packet> <influx_macAddress>
+# 172.20.10.6 1883 sensorweb.us test sensorweb shake Z .001 100 00.00.00.00.00
+
+# 10 data points
+
+mqtt_ip: 172.20.10.6
+mqtt_port: 1883
+influx_ip: sensorweb.us
+influx_user: test
+influx_pass: sensorweb
+influx_db: shake 
+influx_table: Z
+influx_data: 000 ## actual datas
+influx_frequency: .001
+influx_startTime: 0000000000
+influx_packet: 100
+influx_macAddress: 00.00.00.00.00
