@@ -1,6 +1,5 @@
 import paho.mqtt.client as mqtt
 import threading
-from ServerFile import completeCurl
 from config import GetInfo
 from Utils import parseString, getString, write_influx
 

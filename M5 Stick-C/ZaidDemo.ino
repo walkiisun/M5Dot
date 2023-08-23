@@ -6,11 +6,12 @@
 #include "esp_wpa2.h" //wpa2 library for connections to Enterprise networks
 
 
-const char* ssid = "sensorweb";
-const char* password = "sensorweb128";
-
+//
+// ZAID: put your login information here
+//
 char* EAP_IDENTITY  = "SCHOOL EMAIL";
 char* EAP_PASSWORD  = "SCHOOL PASSWORD";
+
 
 char* STAusername;
 char* STApassword;
@@ -20,15 +21,8 @@ float accX = 0.0F;
 float accY = 0.0F;
 float accZ = 0.0F;
 
-float gyroX = 0.0F;
-float gyroY = 0.0F;
-float gyroZ = 0.0F;
 
-float pitch = 0.0F;
-float roll = 0.0F;
-float yaw = 0.0F;
 
-int direction = 0;  //0 = supine , 1 = right, 2 = prone, 3 = left
 
 //String vars
 String macAddress = WiFi.macAddress();  //"00:00:00:00:00:00";
@@ -70,7 +64,11 @@ String unitArray[] = {
 int numOfUnits;
 int count;
 bool finishCollection = false;
-int samplePeriord = 5; // 5 ms
+
+//
+// ZAID: This is the sample periord, change this if you want to change the frequency of the system
+//
+int samplePeriord = 10; // 10 ms == 100hz
 
 //epoch vars
 
@@ -118,23 +116,23 @@ void getDataIMU() {
   M5.IMU.getAccelData(&accX, &accY, &accZ);
 }
 
-String createOutMQTT(String startTime, String endTime, float* dataArray, String macAddress, String unit) {
-  String result = "M5";
-  result += " ";
-  result += unit;
-  result += " ";
+//
+// ZAID: The New format of the string is: # db_name, table_name, data_name, data, mac_address, start_timestamp, interval
+//       This is the only function that was changed
+//
+String createOutMQTT(String db_name, String table_name, String data_name, float* dataArray, String macAddress, String start_timestamp, int interval) {
+  String result = db_name + " ";
+  result += table_name + " ";
+  result += data_name + " ";
   for (int i = 0; i < numDataPoints; i++) {
     result += String(dataArray[i]);
     if (i < numDataPoints - 1) {
       result += ",";
     }
   }
-  result += " ";
-  result += startTime;
-  result += " ";
-  result += endTime;
-  result += " ";
-  result += macAddress;  
+  result += " " + macAddress + " ";  
+  result += start_timestamp " ";
+  result += interval;
   return result;
 }
 
@@ -277,11 +275,25 @@ void debugStatement(String officalStart, String officalEnd){
   Serial.println(officalEnd);
 }
 
+//
+// ZAID:  The imput parameters for createOutMQTT may need to be changed.
+//
 void loop() {
   if(finishCollection == true){
     Serial.println("-----------------------------------");
+    int delayTime = 1000;
     debugStatement(officalStart, officalEnd);
-    sendMQTT(createOutMQTT(officalStart, officalEnd, rowData.accZArray, macAddress, unitArray[2]));
+
+    // (String db_name, String table_name, String data_name, float* dataArray, String macAddress, String start_timestamp, int interval)
+    sendMQTT(createOutMQTT("shake", "testDataX", "value", rowData.gyroXArray, macAddress, officalStart, samplePeriord));
+    delay(delayTime);
+
+    sendMQTT(createOutMQTT("shake", "testDataY", "value", rowData.gyroYArray, macAddress, officalStart, samplePeriord));
+    delay(delayTime);
+
+    sendMQTT(createOutMQTT(("shake", "testDataZ", "value", rowData.gyroZArray, macAddress, officalStart, samplePeriord));
+    delay(delayTime);
+
 
     finishCollection = false;
   }
