@@ -131,7 +131,7 @@ String createOutMQTT(String db_name, String table_name, String data_name, float*
     }
   }
   result += " " + macAddress + " ";  
-  result += start_timestamp " ";
+  result += start_timestamp + " ";
   result += interval;
   return result;
 }
@@ -285,13 +285,13 @@ void loop() {
     debugStatement(officalStart, officalEnd);
 
     // (String db_name, String table_name, String data_name, float* dataArray, String macAddress, String start_timestamp, int interval)
-    sendMQTT(createOutMQTT("shake", "testDataX", "value", rowData.gyroXArray, macAddress, officalStart, samplePeriord));
+    sendMQTT(createOutMQTT("shake", "testDataX", "value", rowData.accXArray, macAddress, officalStart, samplePeriord));
     delay(delayTime);
 
-    sendMQTT(createOutMQTT("shake", "testDataY", "value", rowData.gyroYArray, macAddress, officalStart, samplePeriord));
+    sendMQTT(createOutMQTT("shake", "testDataY", "value", rowData.accYArray, macAddress, officalStart, samplePeriord));
     delay(delayTime);
 
-    sendMQTT(createOutMQTT(("shake", "testDataZ", "value", rowData.gyroZArray, macAddress, officalStart, samplePeriord));
+    sendMQTT(createOutMQTT("shake", "testDataZ", "value", rowData.accZArray, macAddress, officalStart, samplePeriord));
     delay(delayTime);
 
 
