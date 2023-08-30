@@ -7,7 +7,6 @@
 #include "esp_wpa2.h" //wpa2 library for connections to Enterprise networks
 
 
-
 char* EAP_IDENTITY  = "SCHOOL EMAIL";
 char* EAP_PASSWORD  = "SCHOOL PASSWORD";
 
@@ -282,7 +281,7 @@ void debugStatement(String officalStart, String officalEnd){
 void loop() {
   if(finishCollection == true){
     Serial.println("-----------------------------------");
-    int delayTime = 1000;
+    int delayTime = 250;
     debugStatement(officalStart, officalEnd);
 
     // (String db_name, String table_name, String data_name, float* dataArray, String macAddress, String start_timestamp, int interval)
